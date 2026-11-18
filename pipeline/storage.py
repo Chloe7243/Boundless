@@ -12,7 +12,7 @@ from constants.urls import STORAGE_PREFIX
 load_dotenv()
 
 connection_string = os.environ["AZURE_STORAGE_CONNECTION_STRING"]
-container_name = "boundlessproject1"
+container_name = "passport-data"
 _service = BlobServiceClient.from_connection_string(conn_str=connection_string)
 _container = _service.get_container_client(container_name)
 

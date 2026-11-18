@@ -2,7 +2,6 @@ from load import fetch_passport_data
 from storage import upload, retrieve
 
 raw = fetch_passport_data()
-print(raw)
 
 if raw != retrieve():
     upload(raw)
