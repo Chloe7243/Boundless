@@ -1,0 +1,20 @@
+name: Update Passport Index Data
+on:
+  schedule:
+    - cron: "7 20 * * *"
+  workflow_dispatch:
+jobs:
+  update-passport-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Run pipeline
+        working-directory: pipeline
+        run: uv run --locked update.py
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
